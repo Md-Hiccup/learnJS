@@ -18,6 +18,11 @@ import React, { Component } from 'react';
 //   }
 // }
 
-const App = () => <h1>Hello React</h1>;
+class App extends Component {
+  render() {
+    return <h1>Hello React World!!</h1>
+  }
+}
+// const App = () => <h1>Hello React</h1>;
 
 export default App;
