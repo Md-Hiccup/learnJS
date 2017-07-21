@@ -1,0 +1,13 @@
+
+1> tutorial- 1	// 	setup react environment
+
+-	install create-react-app 
+		npm install create-react-app -g
+-	create react app 
+		create-react-app react-app
+		cd react-app
+-	start the server
+		npm start
+
+2> tutorial- 2	//	hello world	
+
