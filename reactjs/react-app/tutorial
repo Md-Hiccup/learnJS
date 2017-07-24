@@ -10,4 +10,9 @@
 		npm start
 
 2> tutorial- 2	//	hello world	
-
+	
+	class App extends Component {
+  	render() {
+    		return <h1>Hello React World!!</h1>
+  		}
+	}

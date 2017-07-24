@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
 
 // class App extends Component {
 //   render() {
@@ -20,8 +20,23 @@ import React, { Component } from 'react';
 
 class App extends Component {
   render() {
-    return <h1>Hello React World!!</h1>
+    let txt = this.props.txt
+    //let defd = this.props.defd
+    return (
+        <div>
+          <h1>Hello React World!!</h1>
+          <h2>{txt} and {this.props.cat} and {this.props.defd}</h2>
+        </div>
+    )
   }
+}
+
+App.propTypes = {
+  txt : React.PropTypes.string,
+  cat : React.PropTypes.number,
+}
+App.defaultProps = {
+  defd : "This is the default text"
 }
 // const App = () => <h1>Hello React</h1>;
 
