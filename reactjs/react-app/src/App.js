@@ -19,13 +19,27 @@ import React, { Component } from 'react';
 // }
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      stateText : 'this is the state text',
+      date : new Date()
+    }
+  }
+  update(e){
+    this.setState({stateText : e.target.value})
+  }
+
   render() {
     let txt = this.props.txt
     //let defd = this.props.defd
     return (
         <div>
+          <input type="text" onClick={this.update.bind(this)} />
           <h1>Hello React World!!</h1>
           <h2>{txt} and {this.props.cat} and {this.props.defd}</h2>
+          <h3>{this.state.stateText}</h3>
+          <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
         </div>
     )
   }
