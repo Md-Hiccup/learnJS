@@ -3,28 +3,35 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(){
     super();
-    this.state = {
-      stateText : 'this is the state text',
-      date : new Date()
+    this.state = { currentEvent : '----'}
+    this.update = this.update.bind(this)
     }
-  }
   update(e){
-    this.setState({stateText : e.target.value})
+    this.setState({currentEvent : e.type})
   }
-
-  render() {
+  render(){
     let txt = this.props.txt
-    //let defd = this.props.defd
     return (
         <div>
           <h1>Hello React World!!</h1>
           <h2>{txt} and {this.props.cat} and {this.props.defd}</h2>
-          <h3>{this.state.stateText}</h3>
-          <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-          <Widget update = {this.update.bind(this)} /><br/>
           <Widget update = {this.update.bind(this)} />
           <Button>I <Heart /> React</Button>
           <Title text="123453"/>
+          <textarea
+            onBlur={this.update}
+            onFocus={this.update}
+            onCopy={this.update}
+            onCut={this.update}
+            onPaste={this.update}
+            onKeyPress={this.update}
+            onTouchStart={this.update}
+            onTouchMove={this.update}
+            onTouchEnd={this.update}
+            onDoubleClick={this.update}
+            rows="10"
+            cols="40" />
+            <h1>{this.state.currentEvent}</h1>
         </div>
     )
   }
