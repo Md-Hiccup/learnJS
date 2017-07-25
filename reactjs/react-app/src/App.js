@@ -24,16 +24,28 @@ class App extends Component {
           <Widget update = {this.update.bind(this)} /><br/>
           <Widget update = {this.update.bind(this)} />
           <Button>I <Heart /> React</Button>
+          <Title text="123453"/>
         </div>
     )
   }
 }
+const Title = (props) => <h1>Title : {props.text}</h1>
+Title.propTypes = {
+  text(props, propName, componentName){
+    if(!(propName in props)){
+      return new Error('missing '+ propName)
+    }
+    if(props[propName].length < 6){
+      return new Error(propName+' was too short')
+    }
+  }
+}
+
 class Heart extends Component {
   render(){
     return <span>&hearts;</span>
   }
 }
-
 const Button = (props) => <button>{props.children}</button>
 
 const Widget = (props) =>
