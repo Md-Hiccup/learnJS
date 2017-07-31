@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends Component {
   constructor(){
     super();
-    this.state = { currentEvent : '----'}
-    this.update = this.update.bind(this)
+    this.state = { currentEvent : '----', a: '', b:''}
     }
   update(e){
-    this.setState({currentEvent : e.type})
+   // this.setState({currentEvent : e.type})
+    this.setState({
+      a: this.refs.a.value,
+      b: ReactDOM.findDOMNode(this.b).value,
+      c: this.c.refs.in.value
+    })
   }
   render(){
-    let txt = this.props.txt
     return (
         <div>
           <h1>Hello React World!!</h1>
-          <h2>{txt} and {this.props.cat} and {this.props.defd}</h2>
-          <Widget update = {this.update.bind(this)} />
-          <Button>I <Heart /> React</Button>
+          <h2>{this.props.txt} and {this.props.cat} and {this.props.defd}</h2>
+          <Button>I <Heart /> React</Button><br/><br />
+          <input
+            ref="a"
+            type="text"
+            onChange={this.update.bind(this)}
+          />{this.state.a}<br />
+          <input
+            ref={ component => this.b = component}
+            type="text"
+            onChange={this.update.bind(this)}
+          />{this.state.b}
+          <Input
+            ref={ component => this.c = component}
+            update={this.update.bind(this)}
+          />{this.state.c}
           <Title text="123453"/>
           <textarea
             onBlur={this.update}
@@ -36,6 +53,7 @@ class App extends Component {
     )
   }
 }
+// Custom propTypes validation
 const Title = (props) => <h1>Title : {props.text}</h1>
 Title.propTypes = {
   text(props, propName, componentName){
@@ -47,7 +65,7 @@ Title.propTypes = {
     }
   }
 }
-
+// Access Nested data using props.children
 class Heart extends Component {
   render(){
     return <span>&hearts;</span>
@@ -55,9 +73,11 @@ class Heart extends Component {
 }
 const Button = (props) => <button>{props.children}</button>
 
-const Widget = (props) =>
-    <input type="text" onChange={props.update} />
-
+class Input extends Component{
+  render(){
+    return <div><input ref='in' type="text" onChange={this.props.update}/></div>
+  }
+}
 App.propTypes = {
   txt : React.PropTypes.string,
   cat : React.PropTypes.number,
