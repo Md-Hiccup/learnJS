@@ -17,7 +17,8 @@ class App extends Component {
     })
   }
   componentWillMount(){
-    console.log('componentWillMount')
+    console.log('componentWillMount');
+    this.setState({m : 2})
   }
   render(){
     console.log('render');
@@ -56,15 +57,18 @@ class App extends Component {
             cols="40" />
             <h1>{this.state.currentEvent}</h1> */}
 
-          <button onClick={this.update}>{this.state.val}</button>
+          <button onClick={this.update}>{this.state.val * this.state.m}</button>
+
         </div>
     )
   }
   componentDidMount(){
-    console.log('componentDidMount')
+    console.log('componentDidMount');
+    this.inc = setInterval(this.update, 500)
   }
   componentWillUnmount(){
-    console.log('componentWillUnmount')
+    console.log('componentWillUnmount');
+    clearInterval(this.inc)
   }
 }
 // Custom propTypes validation
