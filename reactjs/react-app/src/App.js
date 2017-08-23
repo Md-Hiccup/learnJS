@@ -4,17 +4,23 @@ import ReactDOM from 'react-dom';
 class App extends Component {
   constructor(){
     super();
-    this.state = { currentEvent : '----', a: '', b:''}
+    this.state = { currentEvent : '----', a: '', b:'', val: 0}
+    this.update = this.update.bind(this)
     }
   update(e){
    // this.setState({currentEvent : e.type})
     this.setState({
       a: this.refs.a.value,
       b: ReactDOM.findDOMNode(this.b).value,
-      c: this.c.refs.in.value
+      c: this.c.refs.in.value,
+      val : this.state.val + 1
     })
   }
+  componentWillMount(){
+    console.log('componentWillMount')
+  }
   render(){
+    console.log('render');
     return (
         <div>
           <h1>Hello React World!!</h1>
@@ -35,7 +41,7 @@ class App extends Component {
             update={this.update.bind(this)}
           />{this.state.c}
           <Title text="123453"/>
-          <textarea
+          {/*   <textarea
             onBlur={this.update}
             onFocus={this.update}
             onCopy={this.update}
@@ -48,9 +54,17 @@ class App extends Component {
             onDoubleClick={this.update}
             rows="10"
             cols="40" />
-            <h1>{this.state.currentEvent}</h1>
+            <h1>{this.state.currentEvent}</h1> */}
+
+          <button onClick={this.update}>{this.state.val}</button>
         </div>
     )
+  }
+  componentDidMount(){
+    console.log('componentDidMount')
+  }
+  componentWillUnmount(){
+    console.log('componentWillUnmount')
   }
 }
 // Custom propTypes validation
@@ -58,10 +72,10 @@ const Title = (props) => <h1>Title : {props.text}</h1>
 Title.propTypes = {
   text(props, propName, componentName){
     if(!(propName in props)){
-      return new Error('missing '+ propName)
+      return new Error('missing '+ propName)  // <title />
     }
     if(props[propName].length < 6){
-      return new Error(propName+' was too short')
+      return new Error(propName+' was too short')  // text = 12345
     }
   }
 }
@@ -87,4 +101,21 @@ App.defaultProps = {
 }
 // const App = () => <h1>Hello React</h1>;    // stateless function component
 
-export default App;
+class Wrapper extends Component{
+  mount(){
+    ReactDOM.render(<App/>, document.getElementById('a'))
+  }
+  unmount(){
+    ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+  }
+  render(){
+    return (
+    <div>
+      <button onClick={this.mount.bind(this)}>Mount</button>
+      <button onClick={this.unmount.bind(this)}>Unmount</button>
+      <div id="a"></div><br/>
+    </div>
+    )
+  }
+}
+export default Wrapper;
