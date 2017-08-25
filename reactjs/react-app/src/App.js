@@ -42,21 +42,6 @@ class App extends Component {
             update={this.update.bind(this)}
           />{this.state.c}
           <Title text="123453"/>
-          {/*   <textarea
-            onBlur={this.update}
-            onFocus={this.update}
-            onCopy={this.update}
-            onCut={this.update}
-            onPaste={this.update}
-            onKeyPress={this.update}
-            onTouchStart={this.update}
-            onTouchMove={this.update}
-            onTouchEnd={this.update}
-            onDoubleClick={this.update}
-            rows="10"
-            cols="40" />
-            <h1>{this.state.currentEvent}</h1> */}
-
           <button onClick={this.update}>{this.state.val * this.state.m}</button>
 
         </div>
@@ -122,4 +107,44 @@ class Wrapper extends Component{
     )
   }
 }
-export default Wrapper;
+
+//export default Wrapper;
+
+class App1 extends Component {
+    constructor (){
+    super();
+    this.state= {
+      increasing : false
+      }
+    }
+    update(){
+      ReactDOM.render(
+        <App1 val={this.props.val + 1} />,
+        document.getElementById('root')  )
+    }
+    componentWillReceiveProps(nextProps){
+      console.log(nextProps.val+' componenetWillReceiveProps '+this.props.val);
+      this.setState({increasing: nextProps.val > this.props.val})
+    }
+    shouldComponentUpdate(nextProps, nextState){
+      console.log(nextProps.val+' shouldComponentUpdate');
+      return nextProps.val % 2 === 0;
+    }
+    render(){
+      console.log(this.state.increasing)
+      return(
+        <button onClick={this.update.bind(this)}>
+          {this.props.val}
+        </button>
+      )
+    }
+    componentDidUpdate(prevProps, prevState){
+      console.log('componentDidUpdate')
+      console.log('prevProps : '+ prevProps.val )
+    }
+  }
+
+App1.defaultProps = { val : 0 }
+
+
+export default App1
