@@ -16,7 +16,7 @@
     "eject": "react-scripts eject"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
+  "main": "client.js",
   "author": "",
   "license": "ISC"
 }

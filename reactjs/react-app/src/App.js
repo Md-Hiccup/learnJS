@@ -110,6 +110,7 @@ class Wrapper extends Component{
 
 //export default Wrapper;
 
+//*****************  Manage React Component State with Lifecycle Method  *********************
 class App1 extends Component {
     constructor (){
     super();
@@ -148,6 +149,7 @@ App1.defaultProps = { val : 0 }
 
 //export default App1
 
+//**************  Use map to create React Component from Arrays of Data  ***************
 class App2 extends Component {
     constructor(){
       super();
@@ -181,4 +183,4 @@ class App2 extends Component {
 }
 
 const Person = (props) => <h4>{props.person.name}</h4>
-export default App2;
+//export default App2;
