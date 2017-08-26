@@ -6,9 +6,10 @@ import Title from './header/title'
 
 class Header extends Component {
   render(){
+    console.log(this.props);
     return (
       <div>
-        <Title />
+        <Title title={this.props.title} />
       </div>
     )
   }
