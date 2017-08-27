@@ -1,11 +1,30 @@
 
-/**
- * Created by hussain on 26/8/17.
- */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route, Link ,Switch} from 'react-router-dom';
+import { Button } from 'reactstrap';
 
-import Layout from './component/layout';
-
+import About from './pages/about';
+import Contact from './pages/contact';
+import Layout from './pages/layout';
+import Blog from './pages/blog'
 const app = document.getElementById('app');
-ReactDOM.render(<Layout/>, app);
+//ReactDOM.render(<Layout/>, app);
+
+ReactDOM.render(
+  <Router>
+    <div>
+      <h1>Hiccup Blogs</h1>
+      <Link to="/"><Button color="success">Home</Button></Link>
+      <Link to="/about"><Button color="danger">About</Button></Link>
+      <Link to="/blog"><Button color="warning">Blog</Button></Link>
+      <Link to="/contact"><Button color="primary">Contact</Button></Link>
+      <Switch>
+        <Route exact path="/" component={Layout}></Route>
+        <Route path="/contact" component={Contact}></Route>
+        <Route path="/about" component={About}></Route>
+        <Route path="/blog" component={Blog}></Route>
+      </Switch>
+    </div>
+  </Router>,
+app);
