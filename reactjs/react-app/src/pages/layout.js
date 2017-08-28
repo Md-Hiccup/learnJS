@@ -2,12 +2,25 @@
  * Created by hussain on 26/8/17.
  */
 import React, {Component} from 'react';
-
+import Footer from '../component/footer'
 class Layout extends Component {
   render(){
+    //const { location } = this.props;
+    const containerStyle = {
+      marginTop : '60px'
+    };
+    console.log(this.props);
     return (
       <div>
-        <h1>Home</h1>
+        <div>
+          <div className="row">
+            <div className="col-lg-12">
+              <h1>Home</h1>
+              {/*{this.props.match}*/}
+            </div>
+          </div>
+          <Footer />
+        </div>
       </div>
     )
   }

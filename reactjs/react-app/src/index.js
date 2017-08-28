@@ -13,14 +13,15 @@ const app = document.getElementById('app');
 
 ReactDOM.render(
   <Router>
-    <div>
-      <h1>Hiccup Blogs</h1>
+    <div className="container">
       <Link to="/"><Button color="success">Home</Button></Link>
       <Link to="/about"><Button color="danger">About</Button></Link>
       <Link to="/blog"><Button color="warning">Blog</Button></Link>
       <Link to="/contact"><Button color="primary">Contact</Button></Link>
+
+      <h1>Hiccup Blogs</h1>
       <Switch>
-        <Route exact path="/" component={Layout}></Route>
+        <Route exact path="/" component={ Layout }></Route>
         <Route path="/contact" component={Contact}></Route>
         <Route path="/about" component={About}></Route>
         <Route path="/blog" component={Blog}></Route>
