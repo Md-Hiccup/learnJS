@@ -17,7 +17,7 @@ class About extends Component {
       'Some more  Article',
       'Some famous Article',
       'Some not famous Article',
-    ].map((title , i) => <Article key={i} title={title}/>);
+    ].map((title, index) => <Article key={index} title={title}/>);
 
     const adText = [
       'Ad spot #1',

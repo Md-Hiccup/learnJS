@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link ,Switch} from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -19,7 +19,7 @@ ReactDOM.render(
       <Link to="/blog"><Button color="warning">Blog</Button></Link>
       <Link to="/contact"><Button color="primary">Contact</Button></Link>
 
-      <h1>Hiccup Blogs</h1>
+      <h1>Hiccup Lab</h1>
       <Switch>
         <Route exact path="/" component={ Layout }></Route>
         <Route path="/contact" component={Contact}></Route>

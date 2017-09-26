@@ -5,10 +5,6 @@ import React, {Component} from 'react';
 import Footer from '../component/footer'
 class Layout extends Component {
   render(){
-    //const { location } = this.props;
-    const containerStyle = {
-      marginTop : '60px'
-    };
     console.log(this.props);
     return (
       <div>

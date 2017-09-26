@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 
 class Article extends Component {
   render(){
-    console.log(this.props)
+    console.log(this.props);
     const {title} = this.props;
     return (
       <div className="col-md-4">
