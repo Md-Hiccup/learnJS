@@ -11,22 +11,29 @@
  * --watch for watching files
  * -d for development mode
 
-1. Check nodejs and npm is preinstalled 
-    * node -v
-    * npm -v
+### 1. Install webpack 2 and config
+#### Check nodejs and npm is preinstalled 
+    $ node -v
+    $ npm -v
     
-2. To install webpack 
-    * mkdir webpack
-    * cd webpack
-    * npm init
-    * npm i -S webpack  
+#### To install webpack 
+    $ mkdir webpack
+    $ cd webpack
+    $ npm init
+    $ npm i -S webpack  
        
-3. To install dependencies
-    * npm i -D webpack
+#### To install dependencies
+    $ npm i -D webpack
 
-4. install webpack globally
-    * npm i -g webpack
+#### install webpack globally
+    $ npm i -g webpack
 
-5. To create webpack bundle, production for minified version and add watcher    
-    * webpack <entry> <dest> -p --watch
+#### To create webpack bundle, production for minified version and add watcher    
+    $ webpack <entry> <dest> -p --watch
     
+#### To install webpack-dev-server
+    $ npm i webpack-dev-server -D
+    
+#### To install babel and babel-preset-react
+    $ npm i -D babel babel-preset-react 
+    $ npm i -D babel-loader babel-core
