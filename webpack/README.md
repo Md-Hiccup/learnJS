@@ -35,5 +35,5 @@
     $ npm i webpack-dev-server -D
     
 #### To install babel and babel-preset-react
-    $ npm i -D babel babel-preset-react 
+    $ npm i -D babel babel-preset-react babel-preset-es2015
     $ npm i -D babel-loader babel-core
