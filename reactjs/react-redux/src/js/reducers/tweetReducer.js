@@ -4,7 +4,7 @@ var initialState = {
     fetching: false,
     fetched: false,
     error: null,
-}
+};
 function reducer(state= initialState, action){
     switch (action.type){
         case "FETCH_TWEETS":{
