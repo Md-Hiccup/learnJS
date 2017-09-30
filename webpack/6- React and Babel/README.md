@@ -54,5 +54,6 @@
     
 ### 6. React and Babel 
 #### To install babel and babel-preset-react
+    $ npm i -D react react-dom
     $ npm i -D babel babel-preset-react babel-preset-es2015
     $ npm i -D babel-loader babel-core
