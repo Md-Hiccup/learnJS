@@ -64,4 +64,6 @@
      
     $ npm i -D rimraf
     
-   
+### 8. Pug(jade) template engine
+#### To install pug
+    $ npm i -D pug pug-html-loader html-loader
