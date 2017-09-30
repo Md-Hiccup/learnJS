@@ -20,14 +20,16 @@
     "node-sass": "^4.5.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.0"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server -d --watch",
-    "prod": "./node_modules/.bin/webpack -p",
+    "dev": "./../node_modules/.bin/webpack-dev-server -d --watch",
+    "prod": "npm run clean && ./../node_modules/.bin/webpack -p",
+    "clean": "./../node_modules/.bin/rimraf ./dist/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
