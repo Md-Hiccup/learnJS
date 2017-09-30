@@ -1,3 +1,3 @@
 const css = require('../css/client.scss');
 
-console.log('client js');
+console.log('hello from client.js and webpack dev server');

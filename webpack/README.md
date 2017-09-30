@@ -2,6 +2,7 @@
 
 > Keys : 
 
+ * npm run dev for running webpack server
  * i for install 
  * -S for --save
  * -D for --dependencies
@@ -11,7 +12,7 @@
  * --watch for watching files
  * -d for development mode
 
-### 1. Install webpack 2 and config
+### 1. Install webpack 3 and config
 #### Check nodejs and npm is preinstalled 
     $ node -v
     $ npm -v
@@ -32,17 +33,26 @@
     $ ./node_modules/.bin/webpack <entry> <dest> -p --watch
     $ ./node_modules/.bin/webpack ./src/js/client.js ./dist/client.bundle.js -p
 
-### 2. Style , Css and Sass loaders and Extract-text-webpack plugin
-#### To install css-loader and style-loader
+### 2. Html webpack plugin
+#### To install html-webpack-plugin
+    $ npm i -D html-webpack-plugin
+
+### 3. Style, Css, Sass loaders and Extract-text-webpack plugin
+#### To install css-loader, style-loader and sass-loader 
     $ npm i -D css-loader
     $ npm i -D style-loader
     $ npm i -D sass-loader node-sass
     $ npm i -D extract-text-webpack-plugin 
 
-### 3. Webpack Dev Server
+### 4. Webpack Dev Server
 #### To install webpack-dev-server
     $ npm i webpack-dev-server -D
+
+### 5. Webpack Dev Server config
+    * Webpack-dev-server serves all the file from a memory but webpack itself writes them on a disk.
+    * So, Webpack creates all the file (client.bundle.js, client.css, index.html) whereas webpack-dev-server didn't. 
     
+### 6. React and Babel 
 #### To install babel and babel-preset-react
     $ npm i -D babel babel-preset-react babel-preset-es2015
     $ npm i -D babel-loader babel-core

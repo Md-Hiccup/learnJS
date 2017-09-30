@@ -20,21 +20,28 @@ module.exports = {
         ],
 
     },
+    devServer : {
+        contentBase: './dist',
+        compress : true,
+        port : 9000,
+        stats : 'errors-only',
+        open : true
+    },
     output: {
         path: path.resolve(__dirname ,"dist"),
         filename: "client.bundle.js"
     },
     plugins: debug ? [
-         new HtmlWebpackPlugin({
-             title:'demo lover',
-             template:'./js/index.ejs' ,
-             minify : {
+        new HtmlWebpackPlugin({
+            title:'demo lover',
+            template:'./js/index.ejs' ,
+            minify : {
                 collapseWhitespace : false
-             },
-             hash : true
+            },
+            hash : true
         }),
         new ExtractTextPlugin("client.css")
-        ] : [
+    ] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
