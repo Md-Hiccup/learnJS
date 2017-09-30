@@ -25,12 +25,21 @@
 #### To install dependencies
     $ npm i -D webpack
 
-#### install webpack globally
+#### To install webpack globally
     $ npm i -g webpack
 
 #### To create webpack bundle, production for minified version and add watcher    
-    $ webpack <entry> <dest> -p --watch
-    
+    $ ./node_modules/.bin/webpack <entry> <dest> -p --watch
+    $ ./node_modules/.bin/webpack ./src/js/client.js ./dist/client.bundle.js -p
+
+### 2. Style , Css and Sass loaders and Extract-text-webpack plugin
+#### To install css-loader and style-loader
+    $ npm i -D css-loader
+    $ npm i -D style-loader
+    $ npm i -D sass-loader node-sass
+    $ npm i -D extract-text-webpack-plugin 
+
+### 3. Webpack Dev Server
 #### To install webpack-dev-server
     $ npm i webpack-dev-server -D
     

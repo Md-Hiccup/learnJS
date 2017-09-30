@@ -1,7 +1,8 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
-//var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, "src"),
@@ -10,28 +11,30 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: "babel-loader",
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader", "sass-loader"]
+                })
             }
         ],
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015', 'stage-0'],
-                    plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
-                }
-            }
-        ]
+
     },
     output: {
         path: path.resolve(__dirname ,"dist"),
         filename: "client.bundle.js"
     },
-    plugins: debug ? [] : [
+    plugins: debug ? [
+         new HtmlWebpackPlugin({
+             title:'demo lover',
+             template:'./js/index.ejs' ,
+             minify : {
+                collapseWhitespace : false
+             },
+             hash : true
+        }),
+        new ExtractTextPlugin("client.css")
+        ] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

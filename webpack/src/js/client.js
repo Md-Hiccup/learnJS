@@ -1,1 +1,3 @@
-console.log('client js')
+const css = require('../css/client.scss');
+
+console.log('client js');
