@@ -6,10 +6,12 @@ router.get('/', function(req, res, next) {
  // res.send('respond with a resource');
   res.json([{
     id: 1,
-    username: "Hiccup"
+    name: "Hiccup",
+    password: 'hiccup'
   }, {
     id: 2,
-    username: "King Arthur"
+    name: "King Arthur",
+    password: 'king-arthur'
   }]);
 });
 
