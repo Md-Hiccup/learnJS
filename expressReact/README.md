@@ -15,7 +15,6 @@
     router.get('/', function(req, res, next) {
         res.json([{
             id: 1,
-<<<<<<< HEAD
             name: "Hiccup",
             password: 'hiccup'
           }, {
@@ -23,13 +22,6 @@
             name: "King Arthur",
             password: 'king-arthur'
           }]);
-=======
-       	    username: "Hiccup"
-        },{
-       	    id: 2,
-       	    username: "King Arthur"
-        }]);
->>>>>>> 77a7700d167be30431155dd2542b2a1256b3d6b3
     });
 ```
      
