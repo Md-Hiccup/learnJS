@@ -15,11 +15,13 @@
     router.get('/', function(req, res, next) {
         res.json([{
             id: 1,
-       	    username: "samsepi0l"
-        },{
-       	    id: 2,
-       	    username: "D0loresH4ze"
-        }]);
+            name: "Hiccup",
+            password: 'hiccup'
+          }, {
+            id: 2,
+            name: "King Arthur",
+            password: 'king-arthur'
+          }]);
     });
 ```
      
@@ -67,7 +69,7 @@
             <div className="App">
               <h1>Users</h1>
               {this.state.users.map(user =>
-                <div key={user.id}>{user.username}</div>
+                <div key={user.id}>user: {user.name} Password: {user.password}</div>
               )}
             </div>
           );
