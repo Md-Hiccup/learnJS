@@ -4,16 +4,15 @@ import './App.css';
 // import 'es6-promise';
 
 class App extends Component {
-   state ={users: [{
-       id: 4,
-       username:'pal'
-   }]};
+   constructor(){
+       super();
+       this.state ={users: []};
+   }
 
     componentDidMount() {
         fetch('/users')
             .then(res =>{ return res.json()})
             .then(users => {console.log('user ', users);this.setState({ users })});
-
     }
     render() {
         return (
