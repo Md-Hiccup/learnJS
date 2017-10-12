@@ -1,21 +1,22 @@
 ### 1. Create the React App    
-#### Install the create-react-app
+#### To Install the create-react-app
 - $ npm install -g create-react-app
    
-#### Create React direactory 'express-webpack' , run
+#### To Creating React App direactory 'express-webpack' , run
 - $ create-react-app express-webpack
 
-#### Install all dependencies
+#### Install all the  dependencies
 - $ npm i -D webpack webpack-dev-middleware webpack-dev-server html-webpack-plugin
 - $ npm i -D babel-loader babel-core babel-preset-env babel-preset-es2015
 - $ npm i -D url-loader style-loader css-loader rimraf
 
+### 2. Create some file
 #### Move the 'public' directory to 'src' folder
 
-#### create .babelrc and insert 
-` { "presets": [ "es2015", "react" ]} `
+#### Create .babelrc and insert 
+` { "presets": [ "es2015", "react" ]  }`
 
-#### create webpack.config.js and insert
+#### Create webpack.config.js and insert
 ```
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
@@ -79,7 +80,7 @@ module.exports = {
 };
 ```
    
-#### Create server.js in 'express-webpack' and insert
+#### Create server.js and insert
 ```
 const express = require('express');
 const webpack = require('webpack');
@@ -107,14 +108,14 @@ app.listen(3000, function () {
     console.log('Example app listening on port 3000!\n');
 });
 ```   
-
-#### Edit the package.json, In "script", add  
+ 
+### 3. Edit the package.json, In "script", add  
 - "dev": "./node_modules/.bin/webpack-dev-server -d --watch",
 - "prod": "npm run clean && NODE_ENV=production ./node_modules/.bin/webpack -p",
 - "clean": "./node_modules/.bin/rimraf ./dist/*",
 - "server": "nodemon server.js",
         
-### 3. Fetch the Data of express from React
+### 4. Fetch the Data of express from React
 #### Edit the express-webpack/src/App.js 
      
 ```
@@ -152,6 +153,12 @@ app.listen(3000, function () {
       }
 ```
 
+### 5. Run the server
+#### Run the express server by
+-   $ npm run server 
+
+#### For production 
+-   $ npm run prod
 
 
       
