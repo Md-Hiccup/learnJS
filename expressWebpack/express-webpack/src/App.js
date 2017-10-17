@@ -12,6 +12,16 @@ class App extends Component {
         fetch('/users')
             .then(res =>{ return res.json()})
             .then(users => {console.log('user ', users);this.setState({ users })});
+        fetch('/login',{
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: 'post',
+            body : JSON.stringify({a: 1, b: 2})
+        })
+            .then(res => {console.log("a",res); return res.json();})
+            .then(data => {console.log('Request succeeded with JSON response', data)});
     }
     render() {
     return (
@@ -26,7 +36,7 @@ class App extends Component {
             <div>
                 <h1>User</h1>
                 {this.state.users.map(user =>
-                    <div key={1}><h3>Name: {user.name}</h3></div>
+                    <div key={1}><h3>Name: {user.name} &nbsp; Pass: {user.pass}</h3></div>
                 )}
             </div>
         </div>
