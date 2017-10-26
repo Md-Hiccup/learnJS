@@ -20,3 +20,8 @@
 
 > To understand the mongoose, read the quickstart guide from 'mongoosejs.com/docs/index.html'
 
+### 4. Insert and Read data from mongodb
+
+- create mlab account
+- create database 
+- use database name and password in url for connection

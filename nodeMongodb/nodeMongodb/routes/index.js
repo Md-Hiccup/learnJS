@@ -26,7 +26,7 @@ router.get('/list', function (req, res) {
     if(err)
       res.json(err);
     if (user)
-      res.json({'list' : user});
+      res.send({'list' : user});
     console.log('user : ', user);
   })
 });

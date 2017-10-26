@@ -12,7 +12,8 @@ var users = require('./routes/users');
 
 var app = express();
 
-var url = 'mongodb://localhost:27017/nodeMongodb';
+// var url = 'mongodb://localhost:27017/nodeMongodb';
+var url = 'mongodb://node1:node12@ds237445.mlab.com:37445/node_mongodb';
 mongoose.connect(url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
