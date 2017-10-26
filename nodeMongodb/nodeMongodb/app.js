@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
+var env = require('dotenv').load();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -13,7 +14,8 @@ var users = require('./routes/users');
 var app = express();
 
 // var url = 'mongodb://localhost:27017/nodeMongodb';
-var url = 'mongodb://node1:node12@ds237445.mlab.com:37445/node_mongodb';
+var url = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@ds237445.mlab.com:37445/node_mongodb';
+// var url = 'mongodb://node1:node12@ds237445.mlab.com:37445/node_mongodb';
 mongoose.connect(url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
